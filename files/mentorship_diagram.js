@@ -4,6 +4,11 @@ function get_reps(users) {
     var original_council = [];
 
     users.forEach(function(value, index, array) {
+
+        if (value.profile.mentor === null) {
+            return;
+        }
+
         var rep = {'user_id': value.resource_uri.split('/')[4],
                    'name': value.fullname,
                    'url': value.profile.profile_url,
